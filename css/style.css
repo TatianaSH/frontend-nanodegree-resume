@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+
 * {
   padding:0;
   margin:0;
@@ -11,6 +13,7 @@
 .education-entry, .work-entry, .project-entry {
   padding-left: 5%;
   padding-right: 5%;
+  clear : both;
 }
 
 h1 {
@@ -21,6 +24,7 @@ h1 {
 }
 
 h2 {
+ float: left;
   font-weight: bold;
   font-size: 24px;
   color: #999999;
@@ -199,6 +203,7 @@ span {
   height: 100%;
   margin-left: 5%;
   margin-right: 5%;
+  clear: both;
 }
 
 #mapDiv {
@@ -212,4 +217,23 @@ span {
   .biopic {
     display: block;
   }
+}
+#menu {
+background-color: #F5A623; 
+}
+#menu a {
+color: #000000;
+font-weight: bold;
+}
+#menu a:hover {
+color: red;
+}
+
+.top{
+  float: right;
+   padding-right: 5%;
+}
+
+#letsConnect > h2 {
+  float: none;
 }

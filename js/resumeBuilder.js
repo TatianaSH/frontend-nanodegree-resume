@@ -1,29 +1,18 @@
-//$("#main").append ("Tatiana") ;
-//[string].replace ([old], [new]);
-//var awesomeThoughts = "I am Tatiana and I am AWESOME" ;
-//var funThoughts = awesomeThoughts.replace ("AWESOME", "FUN");
-
-//$("#main").append (funThoughts) ;
-//var skills =
-//["awesomeness", "programming", "teaching", "JS"] ;
-//$ ("#main").append (skills);
-//$ ("#main").append (skills[0]);
-//$("#main"). append (skills.length);
 var bio = {
     "name" : "Tatiana Shchelokova",
-	"role" : "Web Developer",
+	"role" : "Front End Web Developer",
 	"welcomeMessage" : "The only way to determine the boundaries of the possible is to go beyond these boundaries." ,
 	"contacts" : {
 	"mobile" : "240-899-5234",
 	"email" : "tanyacholokova@gmail.com" ,
 	"github" : "TatianaSH",
 	"twitter" : "@tatianash",
-	"location" : "Gaithersburg"
+	"location" : "Gaithersburg, MD"
 	},
 	"biopic" : "images/myphoto.jpg",
 	
 	"skills" : [
-     "awesomeness", "smartness", "peacefull"
+     "HTML", "CSS", "Bootstrap", "Javascript", "jQuery"
 	]
 };
 
@@ -31,15 +20,15 @@ var work = {
 	"jobs" : [
 { "employer" : "West Siberian Metallurgical Plant",
   "title" : "engineer",
-  "location" : "Novokuznetsk",
+  "location" : "Novokuznetsk, Russia",
   "dates" : "1991-1997",
-  "description" : "Control of the lining of metallurgical facilities, development and calculation of the lining for different objects"
+  "description" : "Condition monitoring of lining of metallurgical furnaces. Laboratory research and development of new solutions of lining for metallurgical furnaces. Research on lining resistance improvement. "
 },
 { "employer" : "Siberian State Indastrial University",
-  "title" : "engineer",
-  "location" : "Novokuznetsk",
+  "title" : "Lead engineer of “Heat engineering and gas purification” department",
+  "location" : "Novokuznetsk, Russia",
   "dates" : "2005-2006",
-  "description" : "Leadership of the students in the computer lab."
+  "description" : "Support of computer facilities of department, supervise students, research support, and conferencing planning and coordination. "
 }
 	]
 
@@ -48,8 +37,18 @@ var projects = {
 	projects : [
 	{ "title" : "Delphi",
 	"dates" : "2005",
-	"description" : "Training site for the study of Delphi",
-	"images" : ""
+	"description" : "Training site for the study of Delphi.",
+	"images" : ["images/delphi.jpg"]
+	},
+	{"title" : "Mocup to Website",
+	"dates" : "2014",
+	"description" : "Provided a design mockup as a PDF-file and must replicate that design in HTML and CSS.",
+	"images" : ["images/project.jpg"]
+	},
+	{"title" : "Interactive Resume",
+	"dates" : "2015",
+	"description" : "Demonstrate  mastery of the language's syntax through a series of challenges. Each multipart problem mimics a real-life challenge that front-end developers face. It required to write clean code and to apply  knowledge of variables, objects, JSON, functions and control flow to successfully solve the challenges.",
+	"images" : ["images/resume.jpg"]
 	}
 	]
 };
@@ -59,7 +58,7 @@ var education = {
 	"name": "Siberian Metallurgical Institute",
 	"location" : "Novokuznetsk, Russia",
 	"degree" : "BA",
-	"major" : "Phisix",
+	"major" : "Heat engineering and industrial ecology of metallurgical manufacturing",
 	"dates" : "1986-1991",
 	"url" : "http://en.wikipedia.org/wiki/Siberian_State_Industrial_University"
 
@@ -68,7 +67,7 @@ var education = {
     "name": "Siberian State Industrial University",
 	"location" : "Novokuznetsk, Russia",
 	"degree" : "Professional retraining",
-	"major" : "Information Systems and Programming",
+	"major" : "Programming and information networks",
 	"dates" : "2005-2006",
 	"url" : "http://en.wikipedia.org/wiki/Siberian_State_Industrial_University"
 
@@ -81,9 +80,7 @@ var education = {
 	"url" : "https://www.udacity.com/course/nd001"
 }
 ]
-
 };
-var name = bio.name;
 bio.display = function (){
    var formattedName = HTMLheaderName.replace("%data%", bio.name);
    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -100,21 +97,16 @@ if(bio.skills.length !== 0) {
 		var formattedSkills = HTMLskills.replace("%data%",  bio.skills[i]);
 		$("#skills").append(formattedSkills);
 	}
-
 };
 	for (contact in bio.contacts){
 		var formattedContactGeneric = HTMLcontactGeneric.replace("%contact%", contact).replace("%data%", bio.contacts[contact]);
 	$("#topContacts").append(formattedContactGeneric);
 	$("#footerContacts").append(formattedContactGeneric);
 }
-  
-  
 };
-
-
  bio.display();
  
-function displayWork() {
+work.display = function() {
 for (job in work.jobs) {
 	$("#workExperience").append (HTMLworkStart);
 	var employer = HTMLworkEmployer.replace("%data%", work.jobs [job].employer);
@@ -124,10 +116,8 @@ for (job in work.jobs) {
 	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs [job].description);
 	$(".work-entry:last").append (employer + title + formattedDates + formattedLocation + formattedDescription);
 }
-}
-
-
- displayWork();
+};
+work.display();
 
  $(document).click(function(loc) {
   // your code goes here
@@ -135,10 +125,8 @@ for (job in work.jobs) {
   logClicks( loc.pageX, loc.pageY);
 });
 
-
- 
  function inName (name) {
- 	var s = name.split(" ");	
+ 	var s = bio.name.split(" ");	
  	var newName = s[0].slice (0,1).toUpperCase() + s[0].slice (1).toLowerCase() + " " + s[1].toUpperCase();
 return newName;
  }
@@ -193,10 +181,3 @@ education.display = function () {
 education.display();
 
 $("#mapDiv").append(googleMap);
-
-//$("#footerContacts").append();
-//var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-//var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-//var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-//var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-//var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
